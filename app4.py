@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
 from openai import AzureOpenAI
+import json
 
 # Load environment variables
 load_dotenv()
@@ -571,4 +572,5 @@ What are the QoS parameters? How do I file a complaint? Where can I find tariff 
                 )
 
 if __name__ == "__main__":
+
     main()

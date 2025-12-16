@@ -1,5 +1,6 @@
 import os
 import re
+import json
 import pandas as pd
 import streamlit as st
 from openai import AzureOpenAI
@@ -185,7 +186,7 @@ Return ONLY the JSON array, nothing else. Do not include any explanatory text.""
             temperature=0.1,
             max_tokens=1000
         )
-        import json
+        #import json
         result = response.choices[0].message.content.strip()
         
         # Clean up the response - remove markdown code blocks if present
@@ -578,3 +579,4 @@ What are the QoS parameters? How do I file a complaint? Where can I find tariff 
 
 if __name__ == "__main__":
     main()
+

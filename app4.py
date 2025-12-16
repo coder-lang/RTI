@@ -66,12 +66,11 @@ RTI_APPLICATION_DATE = "09.09.2025"
 # -------------------------------
 # Robust URL extraction (unchanged)
 # -------------------------------
+
 URL_REGEX = re.compile(
-    r"""(?ix)
-    \b
-    (https?://[^\s\<\>\)\]\}\]+)   # capture typical URL up to whitespace or closing punctuation
-    """
+    r'(?i)\bhttps?://[^\s<>()\[\]{}]+'
 )
+
 
 def extract_first_url(text: str) -> str:
     """
@@ -560,4 +559,5 @@ What are the QoS parameters? How do I file a complaint? Where can I find tariff 
 
 if __name__ == "__main__":
     main()
+
 

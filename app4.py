@@ -33,13 +33,6 @@ for key in required_keys:
         st.error(f"❌ Missing {key} in secrets")
         st.stop()
     # Debug: Show first/last 4 chars only (for security)
-    if key == "AZURE_OPENAI_API_KEY":
-        masked = f"{value[:4]}...{value[-4:]}" if len(value) > 8 else "***"
-        st.sidebar.info(f"🔑 API Key loaded: {masked}")
-    elif key == "AZURE_OPENAI_ENDPOINT":
-        st.sidebar.info(f"🌐 Endpoint: {value}")
-    elif key == "AZURE_OPENAI_DEPLOYMENT":
-        st.sidebar.info(f"🚀 Deployment: {value}")
 
 # Initialize Azure OpenAI client
 try:
@@ -504,17 +497,6 @@ def main():
     # Load knowledge base
     knowledge_base = load_knowledge_base()
 
-    # Sidebar with improved styling
-    with st.sidebar:
-        st.success(f"✅ **Knowledge Base Loaded**")
-        st.metric(label="RTI Themes Available", value=len(knowledge_base))
-        
-        st.markdown("---")
-        st.info("💡 **Multi-Question Support**\n\nAsk multiple questions in a single submission. Each answer comes directly from the knowledge base.")
-        
-        st.markdown("---")
-        st.warning("⚠️ **Knowledge Base Only**\n\nAll answers are matched from your Excel knowledge base only.")
-
     # User input with improved styling
     st.subheader("📝 Submit Your RTI Query")
     
@@ -598,3 +580,4 @@ What are the QoS parameters? How do I file a complaint? Where can I find tariff 
 
 if __name__ == "__main__":
     main()
+
